@@ -2,6 +2,7 @@
 
 body {
   background-color: #F0EEE1;
+  font-family:Helvetica, Helvetica Neue, Arial, sans-serif;
 }
 
 #header {
@@ -13,16 +14,11 @@ body {
 }
 
 #wrap {
-  width: 960px;
-  margin: 0 auto;
   padding: 40px 0px;
 }
 
 #content {
   background: #FFFFFA;
-  width: 740px;
-  float: left;
-  padding: 20px;
   
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -30,9 +26,6 @@ body {
 }
 
 #sidebar {
-  width: 160px;
-  float: right;
-  padding-left: 20px;
 }
 
 /* Styles for navigation bar */
@@ -79,29 +72,40 @@ body {
 
 /* Styles for basic elements */
 
-h1, h2 {
-  padding-bottom: 20px;
+h2, h3, p {
+  margin: 20px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 55px;
 }
 
 h2 {
+  font-size: 40px;
   color: #3c8dc5;
 }
 
 h3 {
-  padding-bottom: 10px;
+  font-size: 28px;
 }
 
-p {
-  padding-bottom: 10px;
+h4, h5, h6 {
+  font-size: 1em;
 }
 
 .light {
   color: #fff;
 }
 
-#content h2.title {
+.title {
   border-bottom: 1px dotted #666;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+#sidebar h2, #sidebar h3, #sidebar p {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Styles for tables */
