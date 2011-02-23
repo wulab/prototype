@@ -2,7 +2,6 @@
 
 body {
   background-color: #F0EEE1;
-  font-family:Helvetica, Helvetica Neue, Arial, sans-serif;
 }
 
 #header {
@@ -25,7 +24,17 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
+.inner {
+  padding: 20px;
+}
+
 #sidebar {
+
+}
+
+#search {
+  margin: 1.4em 0;
+  width: 200px;
 }
 
 /* Styles for navigation bar */
@@ -36,8 +45,8 @@ body {
 }
 
 #nav ul {
+  margin: 0; padding: 0; list-style: none;
   float: left;
-  list-style: none;
   height: 32px;
   width: 100%;
 }
@@ -72,56 +81,15 @@ body {
 
 /* Styles for basic elements */
 
-h2, h3, p {
-  margin: 20px;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 55px;
-}
-
-h2 {
-  font-size: 40px;
-  color: #3c8dc5;
-}
-
-h3 {
-  font-size: 28px;
-}
-
-h4, h5, h6 {
-  font-size: 1em;
-}
-
 .light {
   color: #fff;
 }
 
-.title {
-  border-bottom: 1px dotted #666;
-  margin-bottom: 10px;
-}
-
-#sidebar h2, #sidebar h3, #sidebar p {
-  margin-left: 0;
-  margin-right: 0;
+.center {
+  text-align: center;
 }
 
 /* Styles for tables */
-
-table {
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-th, td {
-  
-}
-
-th {
-  
-}
 
 .show_border, show_border th, .show_border td,
 .show_border th+th, .show_border td+td {

@@ -25,6 +25,7 @@ gem 'thin'
 # gem 'aws-s3', :require => 'aws/s3'
 gem 'gravatar_image_tag'
 gem 'will_paginate', '>= 3.0.pre2'
+gem 'flutie'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
