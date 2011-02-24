@@ -8,12 +8,13 @@ body {
   background: #3c8dc5;
   height: 80px;
   min-width: 960px;
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0 20px;
+  margin-bottom: 30px;
   position: relative;
 }
 
 #wrap {
-  padding: 40px 0px;
+  padding: 10px 0;
 }
 
 #content {
@@ -92,6 +93,10 @@ body {
 
 .light {
   color: #fff;
+}
+
+.quiet {
+  color: #666;
 }
 
 .center {

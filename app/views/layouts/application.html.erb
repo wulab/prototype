@@ -8,20 +8,13 @@
 </head>
 <body>
 
-<div id="header">
-  <h1 id="title" class="light">Project name</h1>
-  
-  <div id="nav">
-    <ul>
-      <li><%= link_to 'Home', pages_home_path %></li>
-      <li><%= link_to 'About', pages_about_path %></li>
-    </ul>
-  </div>
-</div>
+  <%= render 'layouts/header' %>
 
-<div id="wrap" class="row">
-  <%= yield %>
-</div>
+  <div id="wrap" class="row">
+    <%= yield %>
+  </div>
+  
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>
