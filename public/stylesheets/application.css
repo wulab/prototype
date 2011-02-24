@@ -18,14 +18,23 @@ body {
 
 #content {
   background: #FFFFFA;
-  
+}
+
+/* if browser supports box-shadow */
+.boxshadow #content {
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .inner {
+  border: 1px solid #ddd;
   padding: 20px;
+}
+
+/* if browser supports box-shadow */
+.boxshadow .inner {
+  border: none;
 }
 
 #sidebar {
