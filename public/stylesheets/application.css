@@ -51,17 +51,47 @@ body {
 
 #nav {
   position: absolute;
-  bottom: 0px;
+  top: 20px; right: 20px;
+  padding: 5px 10px;
+  background: #357EB0;
+  white-space: nowrap;
 }
 
 #nav ul {
+  margin: 0; padding: 0;
+}
+
+#nav ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#nav ul li a {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+#nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Styles for tab bar */
+
+#tab {
+  position: absolute;
+  bottom: 0px;
+}
+
+#tab ul {
   margin: 0; padding: 0; list-style: none;
   float: left;
   height: 32px;
   width: 100%;
 }
 
-#nav li {
+#tab li {
   background: #F0EEE1;
   color: #333;
   float: left;
@@ -71,11 +101,11 @@ body {
   line-height: 32px;
 }
 
-#nav .active {
+#tab .active {
   padding: 0 20px;
 }
 
-#nav li a {
+#tab li a {
   background: #357EB0;
   color: #fff;
   display: block;
@@ -84,7 +114,7 @@ body {
   outline: none;
 }
 
-#nav li a:hover {
+#tab li a:hover {
   background: #b2d1e5;
   color: #333;
 }
