@@ -21,6 +21,14 @@ body {
   background: #FFFFFA;
 }
 
+#footer {
+  margin-bottom: 20px;
+}
+
+.debug_dump {
+  width: 940px; margin: 0 auto;
+}
+
 /* if browser supports box-shadow */
 .boxshadow #content {
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -30,7 +38,11 @@ body {
 
 .inner {
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
+}
+
+.inner.last {
+  padding-bottom: 20px;
 }
 
 /* if browser supports box-shadow */
@@ -133,11 +145,27 @@ body {
   text-align: center;
 }
 
+.gravatar {
+  margin: 0; padding: 0;
+}
+
+.user_photo {
+  float: left;
+  margin: 0 1.5em 1.5em 0;
+  width: 150px;
+  height: 150px;
+  background: #fff url(/images/loader.gif) no-repeat center center;
+}
+
 /* Styles for tables */
 
 .show_border, show_border th, .show_border td,
 .show_border th+th, .show_border td+td {
   border: 1px solid #ddd;
+}
+
+.user_info {
+  width: 300px;
 }
 
 /* Styles for task tables */
