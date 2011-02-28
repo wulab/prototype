@@ -25,8 +25,9 @@ body {
   margin-bottom: 20px;
 }
 
-.debug_dump {
-  width: 940px; margin: 0 auto;
+#logo, #logo a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* if browser supports box-shadow */
@@ -57,6 +58,10 @@ body {
 #search {
   margin: 1.4em 0;
   width: 200px;
+}
+
+.debug_dump {
+  width: 940px; margin: 0 auto;
 }
 
 /* Styles for navigation bar */
@@ -132,10 +137,6 @@ body {
 }
 
 /* Styles for basic elements */
-
-.light {
-  color: #fff;
-}
 
 .quiet {
   color: #666;
