@@ -13,6 +13,14 @@ describe UsersController do
       get :new
       response.should have_selector("title", :content => "Sign up")
     end
+    
+    it "should have all required fields" do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+      response.should have_selector("input[name='user[email]'][type='text']")
+      response.should have_selector("input[name='user[password]'][type='password']")
+      response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+    end
   end
   
   describe "GET 'show'" do

@@ -23,7 +23,9 @@ module ApplicationHelper
 
   def error_messages_for(object, attribute)
     if object.errors[attribute].any?
-      messages = object.errors[attribute].collect {|value| "#{attribute.to_s.titlecase} #{value}." }.join('<br />')
+      messages = object.errors[attribute].collect do |value|
+                   "#{attribute.to_s.titlecase} #{value}."
+                 end.join('<br />')
       "<p class=\"inline-errors\">#{messages}</p>".html_safe
     end
   end
