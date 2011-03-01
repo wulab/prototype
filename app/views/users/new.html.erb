@@ -1,9 +1,46 @@
-<div id="content" class="column grid_9">
-  <div class="inner">
+<div id="content" class="column grid_12">
+  <div class="inner last">
   
-  <h1>Users#new</h1>
-  <p>Find me in app/views/users/new.html.erb</p>
-  
+    <h2 class="center"><%= icon("pencil") %> Sign up</h2>
+    <hr />
+    
+    <%= form_for(@user) do |f| %>
+      <fieldset class="inputs">
+        <ol>
+          <li class="string required title">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= error_messages_for(@user, :name) %>
+          </li>
+          <li class="string required title">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+            <%= error_messages_for(@user, :email) %>
+          </li>
+          <li class="password required">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            <%= error_messages_for(@user, :password) %>
+          </li>
+          <li class="password required">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+          </li>
+        </ol>
+      </fieldset>
+      
+      <fieldset class="buttons">
+        <ol>
+          <li>
+            <%= f.submit "Sign up" %>
+          </li>
+          <li>
+            <%= link_to "Cancel", '#', :class => "cancel" %>
+          </li>
+        </ol>
+      </fieldset>
+    <% end %>
+        
   </div>
 </div>
 

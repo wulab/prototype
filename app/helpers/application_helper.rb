@@ -16,5 +16,15 @@ module ApplicationHelper
       @project.name
     end
   end
+  
+  def icon(symbol)
+    "<span class=\"iconic #{symbol}\"></span>".html_safe
+  end
 
+  def error_messages_for(object, attribute)
+    if object.errors[attribute].any?
+      messages = object.errors[attribute].collect {|value| "#{attribute.to_s.titlecase} #{value}." }.join('<br />')
+      "<p class=\"inline-errors\">#{messages}</p>".html_safe
+    end
+  end
 end

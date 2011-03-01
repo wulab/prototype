@@ -292,3 +292,37 @@ div.odd {
 .add_button_row {
   margin: 5px 0px 0px 20px;
 }
+
+/* Styles for error messages */
+
+#error_explanation {
+  border-color: tomato;
+  background-color: snow;
+}
+
+#error_explanation h2 {
+  background-color: firebrick;
+  color: floralwhite;
+}
+
+#error_explanation p {
+  color: darkgray;
+}
+
+.field_with_errors input {
+  background: #FBE3E4;
+}
+
+.inline-errors li {
+  color: #D12F19;
+}
+
+/* Styles for flash messages */
+
+div.error, div.notice, div.success {
+  /* Overrides flutie styles */
+  border-width: 2px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
