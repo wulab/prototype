@@ -1,0 +1,29 @@
+<div id="content" class="column grid_12">
+  <div class="inner last">
+  
+    <h2 class="center"><%= icon("key") %> Sign in</h2>
+    <hr />
+    
+    <%= form_for(:session, :url => sessions_path) do |f| %>
+      <fieldset class="inputs">
+        <ol>
+          <li class="string required title">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </li>
+          <li class="password required">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </li>
+          <li>
+            <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+          </li>
+        </ol>
+      </fieldset>
+      <fieldset class="buttons">
+        <ol><li><%= f.submit "Sign in" %></li></ol>
+      </fieldset>
+    <% end %>
+  
+  </div>
+</div>
