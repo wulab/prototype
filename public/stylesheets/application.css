@@ -152,10 +152,53 @@ body {
 
 .user_photo {
   float: left;
-  margin: 0 1.5em 1.5em 0;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px 5px 0;
+  z-index: 1;
+}
+
+.user_photo.medium {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 10px 0;
+  background: #fff url(/images/loader.gif) no-repeat center center;
+}
+
+.user_photo.large {
   width: 150px;
   height: 150px;
+  margin: 0 15px 15px 0;
   background: #fff url(/images/loader.gif) no-repeat center center;
+}
+
+/* Styles for user list */
+
+ul.users {
+
+}
+
+ul.users li {
+  float: left;
+  width: 268px;
+  height: 100px;
+  margin: 10px;
+  list-style: none;
+  background-color: #F1F1F1;
+  padding: 5px;
+  border: 1px solid #E3E3E3;
+}
+
+ul.users li h4 {
+  margin-top: 10px;
+}
+
+ul.users li a {
+  text-decoration: none;
+}
+
+ul.users li .actions {
+  margin-top: 10px;
 }
 
 /* Styles for tables */
@@ -325,4 +368,14 @@ div.error, div.notice, div.success {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+}
+
+/* Styles for will_paginate */
+
+.pagination {
+  text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
 }

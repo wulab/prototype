@@ -36,4 +36,14 @@ module ApplicationHelper
     
     html.html_safe
   end
+  
+  def deployed_host_with_port
+    if request.env["HTTP_X_FORWARDED_FOR"]
+      referer = URI.parse(request.referer)
+      (referer.port == 80) ? referer.host : "#{referer.host}:#{referer.port}"
+    else
+      request.host_with_port
+    end
+  end
+  
 end
