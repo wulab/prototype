@@ -8,7 +8,16 @@ module UsersHelper
     )
   end
   
+  def deployed_host_with_port
+    if request.env["HTTP_X_FORWARDED_FOR"]
+      referer = URI.parse(request.referer)
+      (referer.port == 80) ? referer.host : "#{referer.host}:#{referer.port}"
+    else
+      request.host_with_port
+    end
+  end
+  
   def image_url(source)
-    "http://#{request.host_with_port}#{image_path(source)}"
+    "http://#{deployed_host_with_port}#{image_path(source)}"
   end
 end
