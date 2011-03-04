@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
   
   def new
+    redirect_to root_path if signed_in?
     @user = User.new
     @title = "Sign up"
   end
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    redirect_to root_path if signed_in?
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Welcome to the Project Management App!"
@@ -47,9 +49,14 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User has successfully been destroyed."
-    redirect_to users_path
+    user = User.find(params[:id])
+    if user.admin?
+      redirect_to users_path
+    else
+      user.destroy
+      flash[:success] = "User has successfully been destroyed."
+      redirect_to users_path
+    end
   end
   
   private

@@ -11,7 +11,14 @@ namespace :db do
       :password_confirmation => "qwerty"
     )
     admin.toggle!(:admin)
-    99.times do |n|
+    webmaster = User.create!(
+      :name => "Webmaster",
+      :email => "webmaster@wu.ac.th",
+      :password => "qwerty",
+      :password_confirmation => "qwerty"
+    )
+    webmaster.toggle!(:admin)
+    98.times do |n|
       name = Faker::Name.name
       email = "#{name.scan(/\w/).join.downcase}@wu.ac.th"
       password = "qwerty"

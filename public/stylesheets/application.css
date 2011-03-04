@@ -201,6 +201,10 @@ ul.users li .actions {
   margin-top: 10px;
 }
 
+a.admin_link {
+  color: #E10078;
+}
+
 /* Styles for tables */
 
 .show_border, show_border th, .show_border td,

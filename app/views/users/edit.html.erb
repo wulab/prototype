@@ -4,41 +4,7 @@
     <h2 class="center"><%= icon("pencil") %> Edit user</h2>
     <hr />
     
-    <%= form_for(@user) do |f| %>
-      <fieldset class="inputs">
-        <ol>
-          <li class="string required title">
-            <%= f.label :name %>
-            <%= f.text_field :name %>
-            <%= error_messages_for(@user, :name) %>
-          </li>
-          <li class="string required title">
-            <%= f.label :email %>
-            <%= f.text_field :email %>
-            <%= error_messages_for(@user, :email) %>
-          </li>
-          <li class="password required">
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-            <%= error_messages_for(@user, :password) %>
-          </li>
-          <li class="password required">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %>
-          </li>
-          <li>
-            <%= gravatar_for @user %>
-            <a href="http://gravatar.com/emails" target="_blank"><%= icon("pencil") %>change</a>
-          </li>
-        </ol>
-      </fieldset>
-      <fieldset class="buttons">
-        <ol>
-          <li><%= f.submit "Update" %></li>
-          <li><%= link_to "Cancel", root_path, :class => "cancel" %></li>
-        </ol>
-      </fieldset>
-    <% end %>
+    <%= render 'form' %>
     
   </div>
 </div>
