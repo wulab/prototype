@@ -26,6 +26,7 @@ gem 'thin'
 gem 'gravatar_image_tag'
 gem 'will_paginate', '>= 3.0.pre2'
 gem 'flutie'
+gem 'faker'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -33,7 +34,6 @@ gem 'flutie'
 group :development do
   gem 'rspec-rails'
   gem 'annotate-models'
-  gem 'faker'
 end
 
 group :test do
