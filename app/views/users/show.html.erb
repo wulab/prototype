@@ -5,7 +5,6 @@
     </div>
     
     <%= render 'user_info' %>
-    
     <hr />
     
   </div>
@@ -21,6 +20,8 @@
           <%= render @microposts %>
         </ul>
         <%= will_paginate @microposts %>
+        <% else %>
+        <%= render 'microposts/blank_slate' %>
         <% end %>
       
       </div>

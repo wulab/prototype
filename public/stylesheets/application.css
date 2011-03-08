@@ -256,8 +256,12 @@ ul.microposts span.timestamp {
   border: 1px solid #ddd;
 }
 
-.user_info {
+table.user_info {
   width: 300px;
+}
+
+.user_info th, .user_info td {
+  border: none;
 }
 
 /* Styles for task tables */
@@ -435,4 +439,19 @@ form.new_micropost {
 form.new_micropost textarea {
   height: 50px;
   width: 80%;
+}
+
+/* Styles for blank slate */
+
+.blank_slate {
+  min-height: 100px;
+  padding: 40px 20px 20px 20px;
+  border: 2px dashed #ddd;
+  text-align: center;
+  font-size: 1.7em;
+  color: #999;
+}
+
+.blank_slate.last {
+  margin-top: 20px;
 }

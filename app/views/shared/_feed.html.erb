@@ -2,4 +2,6 @@
   <ul class="feeds">
     <%= render :partial => 'shared/feed_item', :collection => @feed_items %>
   </ul>
+<% else %>
+  <%= render 'shared/blank_feed' %>
 <% end %>
