@@ -1,53 +1,9 @@
 <% if signed_in? %>
-<div id="content" class="column grid_12">
-  <div class="inner">
-    
-    <h2 class="center"><span class="iconic home"></span> Home</h2>
-    <hr />
-    
-    <div class="box">
-      <h3>Insert <a href="http://www.patternry.com/p=blank-slate/" target="_blank">blank slate</a> here.</h3>
-      <p>Blank slate is the screen people see when they start using an application and there is no data to show yet. Leaving it blank would not make a good first impression, so it should be filled with something useful to make the impression positive and help people get started.</p>
-      <p>To make blank slate useful, consider inserting quick tutorials, videos, help tips, call to action-elements, screenshot of the page when it is in “normal” stage – anything that helps the user and makes him happy with your app.</p>
-    </div>
-    
-  </div>
+
+  <%= render 'pages/dashboard' %>
   
-  <div class="row">
-    <div class="column grid_6">
-      <div class="inner last">
-      
-        <%= render 'shared/feed' %>
-      
-      </div>
-    </div>
-    
-    <div class="column grid_6">
-      <div class="inner last">
-      
-        <h2>What's up?</h2>
-        <%= render 'shared/micropost_form' %>
-        
-      </div>
-    </div>
-    
-  </div>
-</div>
 <% else %>
-<div id="content" class="column grid_12">
-  <div class="inner last">
+
+  <%= render 'pages/homepage' %>
   
-    <h2 class="center"><span class="iconic home"></span> Home</h2>
-    <hr />
-    
-    <p class="center">
-      This is the home page for the project management application.
-      <br /><br />
-      <%= link_to signup_path, :class => "big button" do %>
-        <span class="check iconic"></span> Sign up now!
-      <% end %>
-    </p>
-    
-  </div>
-</div>
 <% end %>
