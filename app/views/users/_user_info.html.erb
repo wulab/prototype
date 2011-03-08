@@ -1,0 +1,17 @@
+<table class="user_info" summary="User Info" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><h2><%= @user.name %></h2></td>
+  </tr> 
+  <tr>
+    <td><span class="quiet">Email</span></td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td><span class="quiet">URL</span></td>
+    <td><%= link_to user_path(@user) %></td>
+  </tr>
+  <tr>
+    <td><span class="quiet">Microposts</span></td>
+    <td><%= @user.microposts.count %></td>
+  </tr>
+</table>

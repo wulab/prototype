@@ -1,0 +1,5 @@
+<% unless @feed_items.empty? %>
+  <ul class="feeds">
+    <%= render :partial => 'shared/feed_item', :collection => @feed_items %>
+  </ul>
+<% end %>
