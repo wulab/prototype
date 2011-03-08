@@ -1,7 +1,7 @@
 <%= form_for @micropost do |f| %>
 <div class="fields">
-  <%= f.text_area :content, :cols => 20, :rows => 4 %>
   <%= error_messages_for(@micropost, :content) %>
+  <%= f.text_area :content, :cols => 20, :rows => 4 %>
 </div>
 <div class="actions">
   <%= f.submit "Submit" %>

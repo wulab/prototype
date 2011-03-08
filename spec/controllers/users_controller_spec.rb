@@ -52,7 +52,7 @@ describe UsersController do
       it "should not have any delete user links" do
         get :index
         @users[0..2].each do |user|
-          response.should_not have_selector("a[data-method='delete']", :href => user_path(user), :content => "Delete")
+          response.should_not have_selector("a[data-method='delete']", :href => user_path(user))
         end
       end
     end
@@ -75,14 +75,14 @@ describe UsersController do
       it "should have delete links for normal users" do
         get :index
         @users[0..2].each do |user|
-          response.should have_selector("a[data-method='delete']", :href => user_path(user), :content => "Delete")
+          response.should have_selector("a[data-method='delete']", :href => user_path(user))
         end
       end
       
       it "should not have delete links for other admin users" do
         get :index
         @admins.each do |admin|
-          response.should_not have_selector("a[data-method='delete']", :href => user_path(admin), :content => "Delete")
+          response.should_not have_selector("a[data-method='delete']", :href => user_path(admin))
         end
       end
     end
