@@ -1,23 +1,35 @@
 <div id="content" class="column grid_12">
-  <div class="inner last">
+  <div class="inner">
     <div class="user_photo large">
       <%= gravatar_for @user, :size => 150 %>
     </div>
-    <table class="user_info" summary="User Info" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td colspan="2"><h2><%= @user.name %></h2></td>
-      </tr> 
-      <tr>
-        <td><span class="quiet">Email</span></td>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <td><span class="quiet">URL</span></td>
-        <td><%= link_to user_path(@user) %></td>
-      </tr>
-    </table>
+    
+    <%= render 'user_info' %>
+    
     <hr />
     
   </div>
   
+  <div class="row">
+    <div class="column grid_6">
+      <div class="inner last">
+    
+        <h3>Latest posts:</h3>
+        
+        <% unless @user.microposts.empty? %>
+        <ul class="microposts">
+          <%= render @microposts %>
+        </ul>
+        <%= will_paginate @microposts %>
+        <% end %>
+      
+      </div>
+    </div>
+    
+    <div class="column grid_6">
+      <div class="inner last">
+        <h3>Latest activities:</h3>
+      </div>
+    </div>
+  </div>
 </div>

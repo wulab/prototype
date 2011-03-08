@@ -61,7 +61,41 @@ body {
 }
 
 .debug_dump {
-  width: 940px; margin: 0 auto;
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* Styles for basic elements */
+
+.quiet {
+  color: #666;
+}
+
+.center {
+  text-align: center;
+}
+
+.gravatar {
+  margin: 0; padding: 0;
+}
+
+.user_photo {
+  float: left;
+  display: block;
+  width: 50px; height: 50px;
+  margin: 0 10px 10px 0;
+  z-index: 1;
+}
+
+.user_photo.medium {
+  width: 100px; height: 100px;
+  background: #fff url(/images/loader.gif) no-repeat center center;
+}
+
+.user_photo.large {
+  width: 150px; height: 150px;
+  margin: 0 15px 15px 0;
+  background: #fff url(/images/loader.gif) no-repeat center center;
 }
 
 /* Styles for navigation bar */
@@ -75,11 +109,12 @@ body {
 }
 
 #nav ul {
+  list-style: none;
   margin: 0; padding: 0;
 }
 
 #nav ul li {
-  list-style-type: none;
+  list-style-position: outside;
   display: inline-block;
 }
 
@@ -98,20 +133,21 @@ body {
 
 #tab {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
 }
 
 #tab ul {
-  margin: 0; padding: 0; list-style: none;
+  list-style: none;
+  margin: 0; padding: 0;
   float: left;
-  height: 32px;
-  width: 100%;
+  height: 32px; width: 100%;
 }
 
 #tab li {
+  list-style-position: outside;
+  float: left;
   background: #F0EEE1;
   color: #333;
-  float: left;
   margin-right: 2px;
   height: 32px;
   font-size: 1.1em;
@@ -136,56 +172,18 @@ body {
   color: #333;
 }
 
-/* Styles for basic elements */
-
-.quiet {
-  color: #666;
-}
-
-.center {
-  text-align: center;
-}
-
-.gravatar {
-  margin: 0; padding: 0;
-}
-
-.user_photo {
-  float: left;
-  width: 50px;
-  height: 50px;
-  margin: 0 5px 5px 0;
-  z-index: 1;
-}
-
-.user_photo.medium {
-  width: 100px;
-  height: 100px;
-  margin: 0 10px 10px 0;
-  background: #fff url(/images/loader.gif) no-repeat center center;
-}
-
-.user_photo.large {
-  width: 150px;
-  height: 150px;
-  margin: 0 15px 15px 0;
-  background: #fff url(/images/loader.gif) no-repeat center center;
-}
-
 /* Styles for user list */
 
 ul.users {
-
+  list-style: none;
 }
 
 ul.users li {
+  list-style-position: outside;
   float: left;
-  width: 268px;
-  height: 100px;
-  margin: 10px;
-  list-style: none;
+  width: 268px; height: 100px;
+  margin: 10px; padding: 5px;
   background-color: #F1F1F1;
-  padding: 5px;
   border: 1px solid #E3E3E3;
 }
 
@@ -203,6 +201,52 @@ ul.users li .actions {
 
 a.admin_link {
   color: #E10078;
+}
+
+/* Styles for micropost & feed list */
+
+ul.microposts,
+ul.feeds {
+  list-style: none;
+}
+
+ul.microposts li,
+ul.feeds li {
+  list-style-position: outside;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+ul.microposts span, ul.feeds span {
+  display: block;
+}
+
+ul.feeds span.title {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+ul.microposts span a,
+ul.feeds span a {
+  text-decoration: none;
+}
+
+ul.feeds span.user_photo {
+  margin-bottom: 0;
+}
+
+ul.microposts span.content,
+ul.feeds span.content {
+  margin-bottom: 0.5em;
+}
+
+ul.microposts li:first-child span.content {
+  font-size: 1.3em;
+}
+
+ul.microposts span.timestamp {
+  font-size: 0.85em;
+  color: #666;
 }
 
 /* Styles for tables */
@@ -276,8 +320,7 @@ div.odd {
 }
 
 .filter td {
-  width: 200px;
-  height: 80px;
+  width: 200px; height: 80px;
   vertical-align: top;
   background-color: #fff;
   padding: 10px;
@@ -328,7 +371,7 @@ div.odd {
 .add_ticket {
   /* background-color: #fff4c0; */
   background-color: #F3F0EB;
-  margin: 10px 0px;
+  margin: 10px 0;
   width: 100%;
 }
 
@@ -337,7 +380,7 @@ div.odd {
 }
 
 .add_button_row {
-  margin: 5px 0px 0px 20px;
+  margin: 5px 0 0 20px;
 }
 
 /* Styles for error messages */
@@ -382,4 +425,14 @@ div.error, div.notice, div.success {
 
 .pagination a {
   text-decoration: none;
+}
+
+/* Styles for micropost form */
+
+form.new_micropost {
+}
+
+form.new_micropost textarea {
+  height: 50px;
+  width: 80%;
 }

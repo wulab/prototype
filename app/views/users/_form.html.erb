@@ -22,8 +22,12 @@
       </li>
       <% if !@user.new_record? %>
       <li>
-        <%= gravatar_for @user %>
-        <a href="http://gravatar.com/emails" target="_blank"><%= icon("pencil") %>change</a>
+        <span class="user_photo"><%= gravatar_for @user %></span>
+        <strong>
+          Change you avatar at
+          <a href="http://gravatar.com/emails" target="_blank">gravatar.com</a>
+        </strong><br />
+        <span class="quiet">You're using <%= @user.email %></span>
       </li>
       <% end %>
     </ol>

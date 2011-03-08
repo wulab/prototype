@@ -89,6 +89,7 @@ describe UsersController do
   end
   
   describe "GET 'new'" do
+  
     it "should be successful" do
       get :new
       response.should be_success
@@ -139,6 +140,14 @@ describe UsersController do
     it "should have a profile image" do
       get :show, :id => @user
       response.should have_selector("div.user_photo>img", :class => "gravatar")
+    end
+    
+    it "should show the user's microposts" do
+      mp1 = Factory(:micropost, :user => @user, :content => "Foo Bar")
+      mp2 = Factory(:micropost, :user => @user, :content => "Baz Quux")
+      get :show, :id => @user
+      response.should have_selector("span.content", :content => mp1.content)
+      response.should have_selector("span.content", :content => mp2.content)
     end
   end
   
@@ -221,7 +230,7 @@ describe UsersController do
     it "should have a link to change the Gravatar" do
       get :edit, :id => @user
       gravatar_url = "http://gravatar.com/emails"
-      response.should have_selector("a", :href => gravatar_url, :content => "change")
+      response.should have_selector("a", :href => gravatar_url, :content => "gravatar.com")
     end
   end
   
