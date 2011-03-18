@@ -22,7 +22,7 @@ class Project < ActiveRecord::Base
                    :uniqueness => {:case_sensitive => false}
   validates :description, :presence => true
   validates :budget, :presence => true,
-                     :numericality => {:greater_than_or_equal_to => 0}
+                     :numericality => {:greater_than_or_equal_to => 0, :less_than => 10**8}
   
   default_scope :order => "projects.created_at DESC"
 end

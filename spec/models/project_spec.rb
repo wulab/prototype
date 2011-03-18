@@ -41,5 +41,19 @@ describe Project do
     it "should reject non-numerical budget" do
       Project.new(@attr.merge(:budget => "xx.xx")).should_not be_valid
     end
+    
+    it "should accept budgets that are closed to upper limit" do
+      Project.new(@attr.merge(:budget => 99999999.99)).should be_valid
+      lambda do
+        Project.create!(@attr.merge(:budget => 99999999.99))
+      end.should_not raise_error
+    end
+    
+    it "should reject budgets that are off limit" do
+      Project.new(@attr.merge(:budget => 100000000.01)).should_not be_valid
+      lambda do
+        Project.create!(@attr.merge(:budget => 100000000.01))
+      end.should raise_error(ActiveRecord::RecordInvalid)
+    end
   end
 end
