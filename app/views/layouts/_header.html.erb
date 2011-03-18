@@ -1,28 +1,40 @@
 <div id="header">
   <%= logo %>
-    
+  
+  <% if signed_in? %>
+  
   <div id="nav">
     <ul>
-      <% if signed_in? %>
-      <li><%= link_to 'Dashboard', root_path %></li>
-      <li><%= link_to 'Users', users_path %></li>
+      <li><%= link_to 'Dashboard', dashboard_path %></li>
       <li><%= link_to 'Profile', current_user %></li>
       <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
       <li><%= link_to 'Sign out', signout_path %></li>
-      <% else %>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Sign in', signin_path %></li>
-      <% end %>
     </ul>
   </div>
   
   <div id="tab">
     <ul>
-      <li><%= link_to 'Projects', '#' %></li>
+      <% if no_project_selected? %>
+      <li><%= link_to 'Projects', projects_path %></li>
+      <li><%= link_to 'People', users_path %></li>
+      <% else %>
+      <li><%= link_to 'Overview', @project %></li>
       <li><%= link_to 'Milestones', '#' %></li>
       <li><%= link_to 'Tasks', '#' %></li>
       <li><%= link_to 'Tickets', '#' %></li>
+      <% end %>
     </ul>
   </div>
+  
+  <% else %>
+  
+  <div id="nav">
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About', about_path %></li>
+      <li><%= link_to 'Sign in', signin_path %></li>
+    </ul>
+  </div>
+  
+  <% end %>
 </div>

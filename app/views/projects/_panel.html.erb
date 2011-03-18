@@ -1,0 +1,29 @@
+<ul class="panel clearfix">
+  <li>
+    <span class="label">Budget</span>
+    <span class="indicator">
+      <%= number_to_human(@project.budget, :format => "%n%u",
+          :units => {:unit => "B", :thousand => "T", :million => "M"}) %>
+    </span>
+  </li>
+  <li>
+    <span class="label">Start</span>
+    <span class="indicator">
+      <%= (@project.start_date.nil?) ?
+        '--' :
+        @project.start_date.to_s(:short).upcase %>
+    </span>
+  </li>
+  <li>
+    <span class="label">Due</span>
+    <span class="indicator">
+    <%= (@project.due_date.nil?) ?
+      '--' :
+      @project.due_date.to_s(:short).upcase %>
+    </span>
+  </li>
+  <li>
+    <span class="label">Progress</span>
+    <span class="indicator">0%</span>
+  </li>
+</ul>

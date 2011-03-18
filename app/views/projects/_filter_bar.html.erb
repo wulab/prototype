@@ -1,0 +1,14 @@
+<div id="filter_bar">
+  <ul>
+    <li>Showing all projects in</li>
+    <li><a href="#">Any department</a></li>
+    <li>with</li>
+    <li><a href="#">Any budget</a></li>
+    <li>or</li>
+    <li>
+      <%= link_to new_project_path, :id => "create_project", :class => "button" do %>
+        <span class="plus iconic"></span> Create project
+      <% end %>
+    </li>
+  </ul>
+</div>

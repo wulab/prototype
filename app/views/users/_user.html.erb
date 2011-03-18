@@ -1,17 +1,17 @@
-<li>
-  <div class="user_photo medium">
-    <%= link_to user do %>
-    <%= gravatar_for user, :size => 100 %>
-    <% end %>
-  </div>
-  <h4>
-    <% css_class = "admin_link" if user.admin? %>
-    <%= link_to user.name, user, :class => css_class %>
-  </h4>
-  <p>Current position</p>
-  <div class="actions">
-    <% if current_user && current_user.admin? && !user.admin? %>
-    <%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?", :class => "button", :title => "Delete #{user.name}" %>
-    <% end %>
-  </div>
-</li>
+<table class="user_info" summary="User Info" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><h2><%= user.name %></h2></td>
+  </tr> 
+  <tr>
+    <td><span class="quiet">Email</span></td>
+    <td><%= user.email %></td>
+  </tr>
+  <tr>
+    <td><span class="quiet">URL</span></td>
+    <td><%= link_to user_path(user) %></td>
+  </tr>
+  <tr>
+    <td><span class="quiet">Microposts</span></td>
+    <td><%= user.microposts.count %></td>
+  </tr>
+</table>

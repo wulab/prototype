@@ -4,7 +4,7 @@
     <hr />
     
     <ul class="users clearfix">
-      <%= render @users %>
+      <%= render :partial => 'user_card', :collection => @users %>
     </ul>
     
     <hr />

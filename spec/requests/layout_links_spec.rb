@@ -23,6 +23,16 @@ describe "LayoutLinks" do
       visit root_path
       response.should have_selector("a", :href => signin_path, :content => "Sign in")
     end
+    
+    it "should show company name" do
+      visit root_path
+      response.should have_selector("h1#logo>a", :href => root_path, :content => "Company name")
+    end
+    
+    it "should have not have any tab menu items" do
+      visit root_path
+      response.should_not have_selector("div#tab")
+    end
   end
   
   describe "when signed in" do
@@ -30,6 +40,7 @@ describe "LayoutLinks" do
     before(:each) do
       @user = Factory(:user)
       integration_sign_in(@user)
+      @project = Factory(:project)
     end
     
     it "should have a sign-out link" do
@@ -40,6 +51,25 @@ describe "LayoutLinks" do
     it "should have a profile link" do
       visit root_path
       response.should have_selector("a", :href => user_path(@user), :content => "Profile")
+    end
+    
+    it "should have the right tab menu when no project selected" do
+      visit root_path
+      response.should have_selector("#tab a", :href => projects_path, :content => "Projects")
+      response.should have_selector("#tab a", :href => users_path, :content => "People")
+    end
+    
+    it "should have project name in the logo area when select a project" do
+      visit project_path(@project)
+      response.should have_selector("h1#logo", :content => @project.name)
+    end
+    
+    it "should have the right tab menu when select a project" do
+      visit project_path(@project)
+      response.should have_selector("#tab a", :href => project_path(@project), :content => "Overview")
+      response.should have_selector("#tab a", :content => "Milestones")
+      response.should have_selector("#tab a", :content => "Tasks")
+      response.should have_selector("#tab a", :content => "Tickets")
     end
   end
 end

@@ -1,0 +1,11 @@
+<%= render 'filter_bar' %>
+
+<% if @projects.empty? %>
+
+  <%= render 'blank_slate' %>
+
+<% else %>
+
+  <%= render :partial => 'project_card', :collection => @projects %>
+
+<% end %>

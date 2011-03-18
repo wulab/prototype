@@ -1,0 +1,17 @@
+<li>
+  <div class="user_photo medium">
+    <%= link_to user_card do %>
+    <%= gravatar_for user_card, :size => 100 %>
+    <% end %>
+  </div>
+  <h4>
+    <% css_class = "admin_link" if user_card.admin? %>
+    <%= link_to user_card.name, user_card, :class => css_class %>
+  </h4>
+  <p>Current position</p>
+  <div class="actions">
+    <% if current_user && current_user.admin? && !user_card.admin? %>
+    <%= link_to "Delete", user_card, :method => :delete, :confirm => "Are you sure?", :class => "button", :title => "Delete #{user_card.name}" %>
+    <% end %>
+  </div>
+</li>

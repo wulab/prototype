@@ -1,0 +1,42 @@
+<%= form_for(@project) do |f| %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="string required title">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= error_messages_for(@project, :name) %>
+      </li>
+      <li class="string required title">
+        <%= f.label :description %>
+        <%= f.text_area :description, :rows => 8 %>
+        <%= error_messages_for(@project, :description) %>
+      </li>
+      <li class="string required">
+        <%= f.label :budget %>
+        <%= f.text_field :budget %>
+        <%= error_messages_for(@project, :budget) %>
+      </li>
+      <li class="datetime optional">
+        <%= f.label :start_date %>
+        <%= f.date_select :start_date, :order => [:day, :month, :year], :include_blank => true %>
+        <%= error_messages_for(@project, :start_date) %>
+      </li>
+      <li class="datetime optional">
+        <%= f.label :end_date %>
+        <%= f.date_select :end_date, :order => [:day, :month, :year], :include_blank => true %>
+        <%= error_messages_for(@project, :start_date) %>
+      </li>
+      <li class="datetime optional">
+        <%= f.label :due_date %>
+        <%= f.date_select :due_date, :order => [:day, :month, :year], :include_blank => true %>
+        <%= error_messages_for(@project, :due_date) %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="buttons">
+    <ol>
+      <li><%= f.submit button_label %></li>
+      <li>or <%= link_to "Cancel", :back, :class => "cancel" %></li>
+    </ol>
+  </fieldset>
+<% end %>

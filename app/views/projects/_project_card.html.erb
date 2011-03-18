@@ -1,0 +1,18 @@
+<div class="column grid_6 card_wrapper">
+
+  <div class="project_card">
+  
+    <h2><%= link_to(project_card.name, project_card) %></h2>
+    <p>Budget: <%= number_to_human(project_card.budget) %> &nbsp; <span class="quiet">Department name</span></p>
+    <div class="project_leader">
+      <img alt="Administrator" src="http://gravatar.com/avatar/383c8158ee366597f7e98b952b012723?size=40" />
+    </div>
+    
+    <hr />
+    
+    <div class="project_images"><img src="/images/project_image.png" /></div>
+    <p class="soft"><%= truncate(project_card.description, :length => 200) %></p>
+    
+  </div>
+  
+</div>

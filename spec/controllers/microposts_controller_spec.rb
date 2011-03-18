@@ -34,9 +34,9 @@ describe MicropostsController do
         end.should_not change(Micropost, :count)
       end
       
-      it "should render the home page" do
+      it "should render the dashboard page" do
         post :create, :micropost => @attr
-        response.should render_template('pages/home')
+        response.should render_template('pages/dashboard')
       end
     end
     
@@ -52,9 +52,9 @@ describe MicropostsController do
         end.should change(Micropost, :count).by(1)
       end
       
-      it "should redirect to the home page" do
+      it "should redirect to the dashboard page" do
         post :create, :micropost => @attr
-        response.should redirect_to(root_path)
+        response.should redirect_to(dashboard_path)
       end
       
       it "should have a flash message" do

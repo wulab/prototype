@@ -13,10 +13,10 @@ describe "Microposts" do
       
       it "should not make a new micropost" do
         lambda do
-          visit root_path
+          visit dashboard_path
           fill_in :micropost_content, :with => ""
           click_button
-          response.should render_template('pages/home')
+          response.should render_template('pages/dashboard')
           response.should have_selector("p.inline-errors")
         end.should_not change(Micropost, :count)
       end
@@ -27,7 +27,7 @@ describe "Microposts" do
       it "should make a new micropost" do
         content = "Lorem ipsum dolor sit amet"
         lambda do
-          visit root_path
+          visit dashboard_path
           fill_in :micropost_content, :with => content
           click_button
           response.should have_selector("span.content", :content => content)

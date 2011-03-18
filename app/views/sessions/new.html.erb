@@ -21,7 +21,10 @@
         </ol>
       </fieldset>
       <fieldset class="buttons">
-        <ol><li><%= f.submit "Sign in" %></li></ol>
+        <ol>
+          <li><%= f.submit "Sign in" %></li>
+          <li>or <%= link_to 'Cancel', :back %></li>
+        </ol>
       </fieldset>
     <% end %>
   

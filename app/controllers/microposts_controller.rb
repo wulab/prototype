@@ -6,16 +6,16 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
       flash[:success] = "Micropost created."
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       @feed_items = current_user.feed.limit(5)
-      render 'pages/home'
+      render 'pages/dashboard'
     end
   end
   
   def destroy
     @micropost.destroy
-    redirect_back_or root_path
+    redirect_back_or dashboard_path
   end
   
   private

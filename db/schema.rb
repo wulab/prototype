@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110304074113) do
+ActiveRecord::Schema.define(:version => 20110314065556) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20110304074113) do
   end
 
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.date     "due_date"
+    t.decimal  "budget",      :precision => 10, :scale => 2, :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["name"], :name => "index_projects_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
