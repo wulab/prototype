@@ -7,8 +7,5 @@ module UsersHelper
       :gravatar => options
     )
   end
-  
-  def image_url(source)
-    "http://#{deployed_host_with_port}#{image_path(source)}"
-  end
+
 end

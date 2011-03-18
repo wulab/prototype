@@ -21,4 +21,8 @@ module PagesHelper
     "<span class=\"iconic #{symbol}\"></span>".html_safe
   end
   
+  def image_url(source)
+    "http://#{deployed_host_with_port}#{image_path(source)}"
+  end
+  
 end
