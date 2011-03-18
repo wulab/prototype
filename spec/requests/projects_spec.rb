@@ -35,7 +35,7 @@ describe "Projects" do
           fill_in :project_description, :with => "lorem ipsum dolor sit amet"
           fill_in :project_budget, :with => 99.99
           click_button
-          response.should have_selector("div.alert", :content => "created")
+          response.should have_selector("div.success", :content => "created")
           response.should render_template('projects/show')
         end.should change(Project, :count).by(1)
       end

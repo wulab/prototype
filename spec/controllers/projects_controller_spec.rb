@@ -163,6 +163,7 @@ describe ProjectsController do
         it "should redirect to the project show page" do
           post :create, :project => @attr
           response.should redirect_to(project_path(assigns(:project)))
+          flash[:success].should =~ /been created/
         end
       end
     end
@@ -228,6 +229,7 @@ describe ProjectsController do
         it "should redirect to project 'show' page" do
           put :update, :id => @project, :project => @attr
           response.should redirect_to(project_path(@project))
+          flash[:success].should =~ /been updated/
         end
       end # describe 'success'
     end # describe 'PUT update'
@@ -283,6 +285,7 @@ describe ProjectsController do
       it "should redirect to projects page" do
         delete :destroy, :id => @project
         response.should redirect_to(projects_path)
+        flash[:success].should =~ /been deleted/
       end
     end # describe 'DELETE destroy'
   end # describe 'for admin users'

@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       user.destroy
-      flash[:success] = "User has successfully been destroyed."
+      flash[:success] = "User has successfully been deleted."
       redirect_to users_path
     end
   end
