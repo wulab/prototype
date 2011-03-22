@@ -17,6 +17,9 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :description, :start_date, :end_date, :due_date, :budget
   
+  has_many :memberships, :dependent => :destroy
+  has_many :users, :through => :memberships
+  
   validates :name, :presence => true,
                    :length => {:maximum => 100},
                    :uniqueness => {:case_sensitive => false}
@@ -24,5 +27,16 @@ class Project < ActiveRecord::Base
   validates :budget, :presence => true,
                      :numericality => {:greater_than_or_equal_to => 0, :less_than => 10**8}
   
-  default_scope :order => "projects.created_at DESC"
+  def has_user?(user)
+    memberships.find_by_user_id(user)
+  end
+  
+  def add_user!(user)
+    memberships.create!(:user_id => user.id)
+  end
+  
+  def remove_user!(user)
+    memberships.find_by_user_id(user).destroy
+  end
+  
 end

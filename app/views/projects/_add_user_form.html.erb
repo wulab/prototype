@@ -1,0 +1,5 @@
+<%= form_for @project.memberships.build(:project_id => @project) do |f| %>
+<%= f.hidden_field :project_id %>
+<%= f.select :user_id, options_from_collection_for_select((User.all - @project.users), :id, :name), :include_blank => true %>
+<%= f.submit "Add user" %>
+<% end %>

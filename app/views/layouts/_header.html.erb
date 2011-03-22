@@ -14,14 +14,15 @@
   
   <div id="tab">
     <ul>
-      <% if no_project_selected? %>
-      <li><%= link_to 'Projects', projects_path %></li>
-      <li><%= link_to 'People', users_path %></li>
-      <% else %>
+      <% if in_a_project? %>
       <li><%= link_to 'Overview', @project %></li>
+      <li><%= link_to 'People', users_project_path(@project) %></li>
       <li><%= link_to 'Milestones', '#' %></li>
       <li><%= link_to 'Tasks', '#' %></li>
       <li><%= link_to 'Tickets', '#' %></li>
+      <% else %>
+      <li><%= link_to 'Projects', projects_path %></li>
+      <li><%= link_to 'People', users_path %></li>
       <% end %>
     </ul>
   </div>

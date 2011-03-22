@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314065556) do
+ActiveRecord::Schema.define(:version => 20110319173807) do
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["project_id"], :name => "index_memberships_on_project_id"
+  add_index "memberships", ["user_id", "project_id"], :name => "index_memberships_on_user_id_and_project_id", :unique => true
+  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

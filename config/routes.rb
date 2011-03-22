@@ -1,9 +1,13 @@
 Prototype::Application.routes.draw do
-  resources :projects
-
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
+  resources :projects do
+    member do
+      get :users
+    end
+  end
+  resources :memberships, :only => [:create, :destroy]
   
   match '/dashboard', :to => 'pages#dashboard'
   match '/about', :to => 'pages#about'

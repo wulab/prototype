@@ -1,14 +1,21 @@
 <div id="content" class="column grid_12">
   <div class="inner last">
-    <h2 class="center"><span class="iconic user"></span> All users</h2>
+    <%= render 'shared/back_link' %>
+    <h2>People in this project</h2>
     <hr />
+    
+    <div id="action_bar">
+      <% if current_user.admin? %>
+        <%= render 'add_user_form' %>
+      <% end %>
+    </div>
     
     <ul class="users clearfix">
       <%= render :partial => 'shared/user_card', :collection => @users %>
     </ul>
     
     <hr />
-    <%= will_paginate %>    
+    <%= will_paginate @users %>
     
   </div>
 </div>

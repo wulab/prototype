@@ -9,10 +9,10 @@ module PagesHelper
   end
   
   def logo
-    if no_project_selected?
-      logo_text = link_to("Company name", root_path)
-    else
+    if in_a_project?
       logo_text = @project.name
+    else
+      logo_text = link_to("Company name", root_path)
     end
     content_tag(:h1, logo_text, :id => "logo")
   end

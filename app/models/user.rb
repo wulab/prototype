@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
   
   has_many :microposts, :dependent => :destroy
+  has_many :memberships, :dependent => :destroy
+  has_many :projects, :through => :memberships
   
   email_regex = /^\S+@\S+\.\S+$/i
   
