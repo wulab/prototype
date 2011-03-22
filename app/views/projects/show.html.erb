@@ -1,17 +1,15 @@
 <div id="content" class="column grid_12">
   <div class="inner">
-  
+    <%= render 'shared/back_link' %>
     <h2>Project overview</h2>
     <hr />
     
-    <%= link_to projects_path, :class => "back_link" do %>
-      back to projects <span class="iconic arrow-up"></span>
-    <% end %>
+    <div id="action_bar">
     <% if current_user.admin? %>
-    <%= link_to 'Edit project', edit_project_path(@project), :class => "button" %>
-    <%= link_to 'Delete project', @project, :method => :delete, :confirm => "Are you sure?", :class => "button" %>
+      <%= link_to 'Edit project', edit_project_path(@project), :class => "button" %>
+      <%= link_to 'Delete project', @project, :method => :delete, :confirm => "Are you sure?", :class => "button" %>
     <% end %>
-    <hr class="space" />
+    </div>
     
   </div>
   
@@ -41,10 +39,9 @@
       <div class="inner last">
       
       <h3>Team members:</h3>
-      <img alt="Administrator" src="http://gravatar.com/avatar/383c8158ee366597f7e98b952b012723?size=50" />
-      <img src="http://gravatar.com/avatar/383c8158ee366597f7e98b952b012723?size=50" />
-      <img src="http://gravatar.com/avatar/383c8158ee366597f7e98b952b012723?size=50" />
-        
+      <% @project.users.each do |user| %>
+        <%= link_to gravatar_for(user), user, :title => user.name %>
+      <% end %>
       </div>
     </div>
   </div>

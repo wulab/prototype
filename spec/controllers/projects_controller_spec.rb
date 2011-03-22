@@ -21,6 +21,8 @@ describe ProjectsController do
       response.should redirect_to(signin_path)
       delete :destroy, :id => @project
       response.should redirect_to(signin_path)
+      get :users, :id => @project
+      response.should redirect_to(signin_path)
     end
   end
   
@@ -251,6 +253,20 @@ describe ProjectsController do
         response.should redirect_to(root_path)
       end
     end # describe 'DELETE destroy'
+    
+    describe "users page" do
+      
+      before(:each) do
+        @project = Factory(:project)
+        @user2 = Factory(:user, :email => Factory.next(:email))
+        @project.add_user!(@user2)
+      end
+      
+      it "should show project users" do
+        get :users, :id => @project
+        response.should have_selector("a", :href => user_path(@user2), :content => @user2.name)
+      end
+    end
   end # describe 'for signed-in users'
   
   describe "for admin users" do

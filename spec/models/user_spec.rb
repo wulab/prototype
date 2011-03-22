@@ -186,4 +186,28 @@ describe User do
     end
   end
   
+  describe "memberships" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+      @project = Factory(:project)
+    end
+    
+    it "should have a memberships method" do
+      @user.should respond_to(:memberships)
+    end
+    
+    it "should have a projects method" do
+      @user.should respond_to(:projects)
+    end
+    
+    it "should have a projects method" do
+      @user.should respond_to(:projects)
+    end
+    
+    it "should include the project in the projects array" do
+      @project.add_user!(@user)
+      @user.projects.should include(@project)
+    end
+  end
 end

@@ -52,4 +52,12 @@ class ProjectsController < ApplicationController
     flash[:success] = "Project has successfully been deleted."
     redirect_to projects_path
   end
+  
+  def users
+    @project = Project.find(params[:id])
+    @users = @project.users.paginate(:page => params[:page], :per_page => 12)
+    @title = "Project users"
+    render 'users'
+  end
+  
 end
