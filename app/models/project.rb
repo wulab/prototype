@@ -1,15 +1,12 @@
 # == Schema Information
-# Schema version: 20110314065556
+# Schema version: 20110323080303
 #
 # Table name: projects
 #
 #  id          :integer         not null, primary key
 #  name        :string(255)
 #  description :text
-#  start_date  :date
-#  end_date    :date
-#  due_date    :date
-#  budget      :decimal(10, 2)  default(0.0)
+#  budget      :decimal(, )     default(0.0)
 #  created_at  :datetime
 #  updated_at  :datetime
 #
@@ -19,6 +16,8 @@ class Project < ActiveRecord::Base
   
   has_many :memberships, :dependent => :destroy
   has_many :users, :through => :memberships
+  has_many :phases, :dependent => :destroy
+  has_many :tasks, :dependent => :destroy
   
   validates :name, :presence => true,
                    :length => {:maximum => 100},
