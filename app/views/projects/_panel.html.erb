@@ -1,5 +1,11 @@
 <ul class="panel clearfix">
   <li>
+    <span class="label">Start</span>
+    <span class="indicator">
+      <%= @project.created_at.to_date.to_s(:short).upcase %>
+    </span>
+  </li>
+  <li>
     <span class="label">Budget</span>
     <span class="indicator">
       <%= number_to_human(@project.budget, :format => "%n%u",
@@ -7,19 +13,9 @@
     </span>
   </li>
   <li>
-    <span class="label">Start</span>
+    <span class="label">People</span>
     <span class="indicator">
-      <%= (@project.start_date.nil?) ?
-        '--' :
-        @project.start_date.to_s(:short).upcase %>
-    </span>
-  </li>
-  <li>
-    <span class="label">Due</span>
-    <span class="indicator">
-    <%= (@project.due_date.nil?) ?
-      '--' :
-      @project.due_date.to_s(:short).upcase %>
+    <%= @project.users.count %>
     </span>
   </li>
   <li>

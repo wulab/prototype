@@ -16,21 +16,6 @@
         <%= f.text_field :budget %>
         <%= error_messages_for(@project, :budget) %>
       </li>
-      <li class="datetime optional">
-        <%= f.label :start_date %>
-        <%= f.date_select :start_date, :order => [:day, :month, :year], :include_blank => true %>
-        <%= error_messages_for(@project, :start_date) %>
-      </li>
-      <li class="datetime optional">
-        <%= f.label :end_date %>
-        <%= f.date_select :end_date, :order => [:day, :month, :year], :include_blank => true %>
-        <%= error_messages_for(@project, :start_date) %>
-      </li>
-      <li class="datetime optional">
-        <%= f.label :due_date %>
-        <%= f.date_select :due_date, :order => [:day, :month, :year], :include_blank => true %>
-        <%= error_messages_for(@project, :due_date) %>
-      </li>
     </ol>
   </fieldset>
   <fieldset class="buttons">
