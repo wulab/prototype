@@ -2,7 +2,7 @@
 
   <div class="project_card">
   
-    <h2><%= link_to(project_card.name, project_card) %></h2>
+    <h2><%= link_to(truncate(project_card.name, :length => 40), project_card) %></h2>
     <p>
       Budget: <%= number_to_human(project_card.budget) %> &nbsp;
       <span class="quiet">Department name</span>
@@ -17,7 +17,7 @@
       <%= image_tag(image_url("/images/project_image.png")) %>
     </div>
     <p class="soft">
-      <%= truncate(project_card.description, :length => 200) %>
+      <%= truncate(project_card.description, :length => 180) %>
     </p>
     
   </div>

@@ -6,8 +6,10 @@ Prototype::Application.routes.draw do
     member do
       get :users
     end
+    resources :tasks, :only => [:index, :new, :create]
   end
   resources :memberships, :only => [:create, :destroy]
+  resources :tasks
   
   match '/dashboard', :to => 'pages#dashboard'
   match '/about', :to => 'pages#about'
