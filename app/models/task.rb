@@ -17,7 +17,7 @@
 #
 
 class Task < ActiveRecord::Base
-  attr_accessible :name, :description, :cost, :task_type, :task_status
+  attr_accessible :name, :description, :cost, :task_type_id, :task_status_id
   
   belongs_to :project
   belongs_to :user

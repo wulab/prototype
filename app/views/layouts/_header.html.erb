@@ -18,7 +18,7 @@
       <li><%= link_to 'Overview', @project %></li>
       <li><%= link_to 'People', users_project_path(@project) %></li>
       <li><%= link_to 'Phases', '#' %></li>
-      <li><%= link_to 'Tasks', '#' %></li>
+      <li><%= link_to 'Tasks', project_tasks_path(@project) %></li>
       <% else %>
       <li><%= link_to 'Projects', projects_path %></li>
       <li><%= link_to 'People', users_path %></li>

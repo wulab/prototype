@@ -27,7 +27,7 @@
     <div class="column grid_6">
       <div class="inner last">
     
-        <h3>Description:</h3>
+        <h3 class="soft">Description:</h3>
         <p><%= simple_format @project.description %></p>
         
         <hr class="space" />
@@ -38,7 +38,7 @@
     <div class="column grid_6">
       <div class="inner last">
       
-      <h3>Team members:</h3>
+      <h3 class="soft">Team members:</h3>
       <% @project.users.each do |user| %>
         <%= link_to gravatar_for(user), user, :title => user.name %>
       <% end %>

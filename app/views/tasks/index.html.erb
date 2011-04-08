@@ -1,0 +1,27 @@
+<div id="content" class="column grid_12">
+  <div class="inner last">
+    <%= render 'shared/back_link' %>
+    <h2>Project tasks</h2>
+    <hr />
+    
+    <div id="action_bar">
+      <%= link_to new_project_task_path, :class => "button" do %>
+        <span class="plus iconic"></span> Add task
+      <% end %>
+    </div>
+    
+    <% @tasks.each do |task| %>
+      <h3 style="color:#1a4882"><%= task.name %></h3>
+      <p>
+        <strong>type:</strong> <%= task.task_type.name %> |
+        <strong>status:</strong> <%= task.task_status.name %> |
+        <strong>cost:</strong> <%= number_to_currency(task.cost, :unit => "&#3647;") %>
+      </p>
+      <p class="soft"><%= task.description %></p>
+      <br /><hr />
+    <% end %>
+    
+    <%= will_paginate @tasks %>
+    
+  </div>
+</div>

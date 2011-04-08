@@ -8,6 +8,9 @@ namespace :db do
     make_microposts
     make_projects
     make_memberships
+    insert_default_task_types
+    insert_default_task_statuses
+    make_project_tasks
   end
 end
 
@@ -52,24 +55,50 @@ def make_projects
     name = Faker::Company.catch_phrase
     description = Faker::Lorem.paragraphs.join("\n\n")
     budget = (rand * 10**6).to_i
-    start_date = rand(365).day.ago
-    end_date = rand(365).day.from_now
-    due_date = rand(365).day.from_now
     Project.create!(
       :name => name,
       :description => description,
       :budget => budget,
-      :start_date => start_date,
-      :end_date => end_date,
-      :due_date => due_date
     )
   end
 end
 
 def make_memberships
-  users = User.all(:limit => 6)
+  users = User.all(:limit => 5)
   projects = Project.all
   projects.each do |project|
     users.each {|user| project.add_user!(user) }
+  end
+end
+
+def insert_default_task_types
+  unless TaskType.first
+    TaskType.create!(:name => 'normal')
+    TaskType.create!(:name => 'purchase')
+  end
+end
+
+def insert_default_task_statuses
+  unless TaskStatus.all.any?
+    TaskStatus.create!(:name => 'open')
+    TaskStatus.create!(:name => 'closed')
+    TaskStatus.create!(:name => 'duplicate')
+  end
+end
+
+def make_project_tasks
+  projects = Project.all
+  task_types = TaskType.all
+  task_statuses = TaskStatus.all
+  projects.each do |project|
+    10.times do |n|
+      project.tasks.create!(
+        :name => Faker::Company.bs.humanize,
+        :description => Faker::Lorem.sentences.join(" "),
+        :cost => (rand(3) == 0) ? rand(33)/100.0 * project.budget : 0.0,
+        :task_type_id => task_types.shuffle[0].id,
+        :task_status_id => task_statuses.shuffle[0].id
+      )
+    end
   end
 end

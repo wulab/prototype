@@ -1,0 +1,35 @@
+<%= form_for([@project, @task]) do |f| %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="string required title">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= error_messages_for(@task, :name) %>
+      </li>
+      <li class="string required title">
+        <%= f.label :description %>
+        <%= f.text_area :description, :rows => 8 %>
+        <%= error_messages_for(@task, :description) %>
+      </li>
+      <li class="string required">
+        <%= f.label :cost %>
+        <%= f.text_field :cost %>
+        <%= error_messages_for(@task, :cost) %>
+      </li>
+      <li class="select required">
+        <%= f.label :task_type %>
+        <%= f.select :task_type_id, options_from_collection_for_select(TaskType.all, "id", "name") %>
+      </li>
+      <li class="select required">
+        <%= f.label :task_status %>
+        <%= f.select :task_status_id, options_from_collection_for_select(TaskStatus.all, "id", "name") %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="buttons">
+    <ol>
+      <li><%= f.submit button_label %></li>
+      <li>or <%= link_to "Cancel", :back, :class => "cancel" %></li>
+    </ol>
+  </fieldset>
+<% end %>

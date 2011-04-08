@@ -67,9 +67,9 @@ describe "LayoutLinks" do
     it "should have the right tab menu when select a project" do
       visit project_path(@project)
       response.should have_selector("#tab a", :href => project_path(@project), :content => "Overview")
-      response.should have_selector("#tab a", :content => "Milestones")
+      response.should have_selector("#tab a", :href => users_project_path(@project), :content => "People")
+      response.should have_selector("#tab a", :content => "Phases")
       response.should have_selector("#tab a", :content => "Tasks")
-      response.should have_selector("#tab a", :content => "Tickets")
     end
   end
 end
